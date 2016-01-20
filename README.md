@@ -1,7 +1,7 @@
 
 #A longform template
 
-[A demo of the template can be found here.](http://haddersbadders.github.io/longform/)
+[A demo of the template can be found here.](http://haddersbadders.github.io/fancy-longform/)
 
 This template is in the style of a lonform page. The longform style strips out web page furniture such as header, nav, sidebar etc and puts the focus on content with full width images, large type and headers.
 
