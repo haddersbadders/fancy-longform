@@ -1,65 +1,43 @@
+# Astro Starter Kit: Minimal
 
-#A longform template
+```sh
+npm create astro@latest -- --template minimal
+```
 
-[A demo of the template can be found here.](http://haddersbadders.github.io/fancy-longform/)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-This template is in the style of a lonform page. The longform style strips out web page furniture such as header, nav, sidebar etc and puts the focus on content with full width images, large type and headers.
+## 🚀 Project Structure
 
-##Structure
+Inside of your Astro project, you'll see the following folders and files:
 
-The structure is really quite simple: Content is broken down into sections using the HTML tag ```<section>```.
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-There are two types of ```<section>```that are differentiated using two different class names:
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-- A content section, using the class name **content**
-- A header section, that uses the class name **img_container**
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-###Examples
+Any static assets, like images, can be placed in the `public/` directory.
 
-When you want a header section, use:
+## 🧞 Commands
 
-```<section class="img_container">
-  //Content here
-  </section>```
+All commands are run from the root of the project, from a terminal:
 
-When you want some content, add:
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-```<section class="content"> //Some content </section> ```
+## 👀 Want to learn more?
 
-##The content sections
-The content section is used to put text and inline images in. Content in this section has a width of 60% and is centred. This is controlled by the **.content** selector in CSS.
-
-You can add additional classes to your content sections for further styling. For example changing the background colour:
-
-```<section class="mountains content">``` 
-with the CSS of 
-``` .mountains {background: #CCD9E1; }```
-
-##The header sections
-
-The header sections are there to give nice big headers for content with full width image backgrounds. The ```.img_container``` class in CSS has only two properties: 
-
-1. ```height: 100vh``` which sets the height of the section to whatever the height of the viewport is
-2. ```position: relative``` enables absolute positioning of elements inside the section
-
-because each different header section is different - they may have different background images or colours - an additional class is applied to each header section and styled accordingly:
-
-```<section class="rocks img_container">``` with CSS of ```.rocks { background: url(path/to/image.jpg); }```
-
-##Sections, DIVs or headers?
-
-I've used ```<section>``` elements, but because the styles are controlled by classes it doesn't really matter what elements are used. It could be ```<header class="rocks img_container">``` or ```<div class="rocks img_container">```. 
-
-##Effects 
-
-Also included are [Animate.css](https://daneden.github.io/animate.css/) and [Wow.js](http://mynameismatthieu.com/WOW/). 
-
-Animate.css provides animation for elements and Wow.js allows control over these animations so they occur when scrolled to. 
-
-##YouTube
-
-YouTube is invoked using the [Youtube API](https://developers.google.com/youtube/) rather than just the iFrame embed. This is beacuase the YouTube video is paused until the user scrolls to it then pauses again once the user scrolls past. This is controlled in the js/index.js file using [ScrollMagic](http://scrollmagic.io/examples/index.html).
-
-##Audio 
-
-In the "flowers" section header, audio is embeded using the ```<audio>``` element. Playback is controlled in js/index.js using ScollMagic. When the user scrolls to the trigger div, ScrollMagic plays the audio file and pauses when scrolled away.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

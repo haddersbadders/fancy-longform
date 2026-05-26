@@ -1,0 +1,35 @@
+---
+import StoryLayout from '../layouts/StoryLayout.astro';
+import { getCollection } from 'astro:content';
+
+const stories = await getCollection('stories');
+---
+
+<StoryLayout title="Fancy Longform Catalog">
+  <div class="min-h-screen pt-32 px-6 max-w-5xl mx-auto">
+    <h1 class="text-4xl font-bold mb-12">Available Stories</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {stories.map(story => (
+        <a href={`/stories/${story.id}`} class="group block">
+          <article class="bg-neutral-800 rounded-lg overflow-hidden border border-neutral-700 hover:border-neutral-500 transition-colors">
+            {story.data.coverImage && (
+              <div class="h-48 overflow-hidden">
+                <img src={story.data.coverImage} alt={story.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            )}
+            <div class="p-6">
+              <h2 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">{story.data.title}</h2>
+              <p class="text-neutral-400 mb-4">{story.data.description}</p>
+              <div class="flex justify-between items-center text-sm text-neutral-500">
+                <span>{story.data.author}</span>
+                <time datetime={story.data.pubDate.toISOString()}>
+                  {story.data.pubDate.toLocaleDateString()}
+                </time>
+              </div>
+            </div>
+          </article>
+        </a>
+      ))}
+    </div>
+  </div>
+</StoryLayout>

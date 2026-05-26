@@ -1,0 +1,64 @@
+---
+interface Props {
+  src: string;
+  label?: string;
+}
+const { src, label = "Ambient Audio Track" } = Astro.props;
+---
+
+<div class="audio-trigger border border-neutral-700 bg-neutral-800/40 backdrop-blur rounded-lg p-4 flex items-center justify-between" data-audio-src={src}>
+  <div class="flex flex-col">
+    <span class="text-xs text-neutral-400 uppercase tracking-wider font-mono">Ambient Audio</span>
+    <span class="text-sm font-semibold">{label}</span>
+  </div>
+  <audio class="hidden" loop src={src}></audio>
+  <button class="audio-btn p-2 rounded-full bg-neutral-700 hover:bg-neutral-600 transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M12 18.75V5.25L7.75 9.5H4.5v5h3.25L12 18.75z"/></svg>
+  </button>
+</div>
+
+<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  };
+
+  const audioContainers = document.querySelectorAll('.audio-trigger');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const audio = entry.target.querySelector('audio');
+      if (!audio) return;
+
+      if (entry.isIntersecting) {
+        audio.volume = 0;
+        audio.play().catch(() => console.log('Autoplay deferred until user interaction'));
+        fadeAudio(audio, 0.4, 1200);
+      } else {
+        fadeAudio(audio, 0, 1000, () => audio.pause());
+      }
+    });
+  }, observerOptions);
+
+  audioContainers.forEach(container => observer.observe(container));
+
+  function fadeAudio(audio: HTMLAudioElement, targetVolume: number, duration: number, callback?: () => void) {
+    const startVolume = audio.volume;
+    const difference = targetVolume - startVolume;
+    const startTime = performance.now();
+
+    function update() {
+      const elapsed = performance.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      audio.volume = startVolume + (difference * progress);
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else if (callback) {
+        callback();
+      }
+    }
+    requestAnimationFrame(update);
+  }
+</script>

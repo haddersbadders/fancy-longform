@@ -1,0 +1,59 @@
+---
+title: "The Silence of the Canyon"
+description: "A modernized look at canyon ecology and water resources"
+author: "Antigravity Workspace Builder"
+pubDate: 2026-05-26
+theme: "dark"
+coverImage: "/images/canyon-header.webp"
+---
+
+import ScrollyContainer from '../../components/ScrollyContainer.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
+import FullWidthVideo from '../../components/FullWidthVideo.astro';
+
+# The Echoes of a Dry Riverbed
+
+We have modernized this page using **Astro** in our **Antigravity** workspace. It ships virtually zero visual blocking scripts by default.
+
+<FullWidthVideo videoSrc="/video/canyon-flyover.mp4" fallbackSrc="/images/canyon-fallback.jpg" />
+
+<AudioPlayer src="/audio/desert-wind.mp3" label="Ambient Desert Soundscape" />
+
+## Transitioning Landscapes
+
+Here is a visual comparison of ecological transition over 100 years, using custom scrolly cards.
+
+<ScrollyContainer>
+  <div slot="visual">
+    <img data-visual-id="historic" src="/images/canyon-1926.webp" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" />
+    <img data-visual-id="modern" src="/images/canyon-2026.webp" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000" />
+  </div>
+  
+  <div slot="narrative">
+    <div class="scrolly-step opacity-50 transition-all duration-500 min-h-screen flex items-center" data-target-id="historic">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">1926: The Lush Floor</h3>
+        <p class="text-neutral-400">Archival landscape surveys map out lush cottonwood thickets and active spring runs.</p>
+      </div>
+    </div>
+    
+    <div class="scrolly-step opacity-50 transition-all duration-500 min-h-screen flex items-center" data-target-id="modern">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">2026: An Arid Basin</h3>
+        <p class="text-neutral-400">A century of climatic shifts has left only coarse desert sands and drought-resistant flora.</p>
+      </div>
+    </div>
+  </div>
+</ScrollyContainer>
+
+## Consectetur Parturient Pellentesque Ipsum
+
+Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna.
+
+Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
+Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor.
+
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
